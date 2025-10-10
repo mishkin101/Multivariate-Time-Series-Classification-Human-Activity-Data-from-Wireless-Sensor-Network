@@ -8,7 +8,7 @@ This project tackles multivariate time-series classification using the UCI AReM 
 
 ### Binary Classification Comparison: 
 - a p-value-guided RFE + logistic regression pipeline
-- - L1-penalized logistic regression that performs embedded feature selection.
+- 1-penalized logistic regression that performs embedded feature selection.
  
 ### Multiclass Classification Comparison:
 evaluate multinomial logistic regression (L1) and Naive Bayes variants, including a Gaussian NB + PCA reduction to mitigate feature correlation. 
