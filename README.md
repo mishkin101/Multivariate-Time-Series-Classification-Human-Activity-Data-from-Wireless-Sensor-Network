@@ -6,7 +6,8 @@ This project tackles multivariate time-series classification using the [UCI AReM
 1. organize time series data into train/test folders
 2. engineer time-domain features per signal—min, max, mean, median, quartiles, standard deviation, zero-crossings, cross-correlation, peak/trough counts;
 3. segment each instance into ℓ equal chunks and extract the same features within each segment to capture within-instance dynamics;
-4. build and compare classifiers for both a binary task (bending vs. non-bending) and multiclass activity recognition.
+4. perform class imbalance correction via undersampling majority
+5. build and compare classifiers for both a binary task (bending vs. non-bending) and multiclass activity recognition.
 
 ### Binary Classification Comparison: 
 - a p-value-guided RFE + logistic regression pipeline
