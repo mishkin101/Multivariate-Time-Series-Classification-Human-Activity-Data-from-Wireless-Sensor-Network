@@ -103,6 +103,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Dataset</h1>
 <p><a href="https://archive.ics.uci.edu/ml/datasets/Activity+Recognition+system+based+on+Multisensor+data+fusion+%5C%28AReM%5C%29">Download the AReM data from isc</a></p>
 <p>This dataset contains temporal data from a Wireless Sensor Network worn by an actor performing the activities: bending, cycling, lying down, sitting, standing, walking. It contains 7 folders that represent seven types of activities. In each folder, there are multiple files each of which represents an instant of a human performing an activity. Each file containis 6 time series collected from activities of the same person, which are called avg rss12, var rss12, avg rss13, var rss13, vg rss23, and ar rss23. There are 88 instances in the dataset, each of which contains 6 time series and each time series has 480 consecutive values.</p>
+<p>This project tackles multivariate time-series classification using the <a href="https://archive.ics.uci.edu/dataset/366/activity+recognition+system+based+on+multisensor+data+fusion+arem">UCI AReM</a> human-activity dataset collected from a wireless sensor network (six synchronized signals per instance, 480 samples each).</p>
+<section id="worflow" class="level3">
+<h3 class="anchored" data-anchor-id="worflow">Worflow</h3>
+<ol type="1">
+<li>organize time series data into train/test folders</li>
+<li>engineer time-domain features per signal—min, max, mean, median, quartiles, standard deviation, zero-crossings, cross-correlation, peak/trough counts;</li>
+<li>segment each instance into ℓ equal chunks and extract the same features within each segment to capture within-instance dynamics;</li>
+<li>perform class imbalance correction via undersampling majority</li>
+<li>build and compare classifiers for both a binary task (bending vs.&nbsp;non-bending) and multiclass activity recognition.</li>
+</ol>
+</section>
+<section id="binary-classification-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="binary-classification-comparison">Binary Classification Comparison:</h3>
+<ul>
+<li>a p-value-guided RFE + logistic regression pipeline</li>
+<li>1-penalized logistic regression that performs embedded feature selection.</li>
+</ul>
+</section>
+<section id="multiclass-classification-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="multiclass-classification-comparison">Multiclass Classification Comparison:</h3>
+<ul>
+<li>evaluate multinomial logistic regression (L1) and Naive Bayes variants, including a Gaussian NB + PCA reduction to mitigate feature correlation.</li>
+</ul>
+</section>
+<section id="comparison-framework" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-framework">Comparison Framework</h3>
+<p>Model selection uses nested/outer cross-validation and test-set evaluation with ROC/AUC, accuracy, and confusion matrices.</p>
+</section>
 <section id="split-into-train-and-test-folders" class="level3">
 <h3 class="anchored" data-anchor-id="split-into-train-and-test-folders">Split into train and test folders</h3>
 <div id="5556b7d7" class="cell">
